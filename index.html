@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code - Pedidos de Oração</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="qrcode.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="logo.jpeg" alt="Logo da Igreja" style="max-width: 110px; height: auto; margin: 0 auto 10px auto; display: block; border-radius: 8px;">
+            <h1 class="church-name">Comunidade Neo</h1>
+            <p class="call-to-action">Faça seu pedido de oração</p>
+        </header>
+
+        <div class="card">
+            <p class="subtitle">
+                Aponte a câmera do seu celular para o QR Code abaixo para enviar o seu pedido de oração:
+            </p>
+            
+            <div class="qr-section">
+                <canvas id="qr-canvas"></canvas>
+                <p id="current-url" class="url-text" style="margin-top: 12px;"></p>
+            </div>
+
+            <button onclick="window.print()" class="btn-margin">🖨️ Imprimir QR Code</button>
+        </div>
+
+        <div class="footer-nav">
+            <a href="admin.html">🔒 Acessar Área Restrita (Liderança)</a>
+        </div>
+
+        <footer style="background-color: #1e3a8a; color: #ffffff; text-align: center; margin-top: 24px; padding: 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+            📍 Av. Rotary, 155 - Vila Bocaina - Ribeirão Pires - SP
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const pedidoUrl = new URL('pedido.html', window.location.href).href;
+            document.getElementById('current-url').innerText = pedidoUrl;
+            gerarQRCode('qr-canvas', pedidoUrl);
+        };
+    </script>
+</body>
+</html>
