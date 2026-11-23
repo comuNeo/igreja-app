@@ -128,7 +128,7 @@ async function loadPrayers() {
 
         const cleanPhone = (p.whatsapp || '').replace(/\D/g, '');
         const fullPhone = cleanPhone.length <= 11 && cleanPhone.length > 0 ? `55${cleanPhone}` : cleanPhone;
-                const waLink = 'https:' + '//wa.me' + String.fromCharCode(47) + fullPhone + '?text=Olá ' + encodeURIComponent(p.nome) + ', paz! Recebemos o seu pedido de oração na igreja e estamos orando por você.';
+                const waLink = 'https://whatsapp.com' + fullPhone + '&text=' + encodeURIComponent('Olá ' + p.nome + ', paz! Recebemos o seu pedido de oração na igreja e estamos orando por você.');
 
         let detalhesExtras = '';
         if (p.visita_horario) detalhesExtras += `<br><small>🏠 <strong>Visita/Horário:</strong> ${p.visita_horario}</small>`;
