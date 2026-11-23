@@ -23,7 +23,10 @@
             
             <div class="qr-section">
                 <canvas id="qr-canvas"></canvas>
-                <p id="current-url" class="url-text" style="margin-top: 12px;"></p>
+                <p class="url-text" style="margin-top: 14px; font-size: 0.9rem;">
+                    <strong>VOCÊ PODE ACESSAR POR AQUI TAMBÉM!</strong><br>
+                    <a id="current-url" href="pedido.html" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;"></a>
+                </p>
             </div>
 
             <button onclick="window.print()" class="btn-margin">🖨️ Imprimir QR Code</button>
@@ -41,7 +44,9 @@
     <script>
         window.onload = function() {
             const pedidoUrl = new URL('pedido.html', window.location.href).href;
-            document.getElementById('current-url').innerText = pedidoUrl;
+            const linkElement = document.getElementById('current-url');
+            linkElement.innerText = pedidoUrl;
+            linkElement.href = pedidoUrl;
             gerarQRCode('qr-canvas', pedidoUrl);
         };
     </script>
